@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   SMITXFX — design tokens
+------------------------------------------------------------------- */
+@theme {
+  --color-ink: #080808;
+  --color-ink-2: #101010;
+  --color-card: #151515;
+  --color-cream: #f5f5f5;
+  --color-smoke: #999999;
+  --color-ember: #ff2b2b;
+  --color-line: rgba(255, 255, 255, 0.1);
+
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* ------------------------------------------------------------------
+   Base
+------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-ember);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border: 2px solid #0a0a0a;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ember);
+}
+
+/* Hide the native cursor when the custom cursor is active */
+@media (pointer: fine) {
+  .has-cursor,
+  .has-cursor * {
+    cursor: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Utilities
+------------------------------------------------------------------- */
+.text-outline {
+  -webkit-text-stroke: 1px rgba(245, 245, 245, 0.16);
+  color: transparent;
+}
+
+.mask-fade-x {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+/* ------------------------------------------------------------------
+   Grain / noise overlay
+------------------------------------------------------------------- */
+.grain {
+  position: fixed;
+  inset: -60%;
+  width: 220%;
+  height: 220%;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 7s steps(9) infinite;
+}
+
+@keyframes grain-shift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -8%);
+  }
+  30% {
+    transform: translate(3%, -12%);
+  }
+  50% {
+    transform: translate(-8%, 4%);
+  }
+  70% {
+    transform: translate(6%, 8%);
+  }
+  90% {
+    transform: translate(-3%, 6%);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Marquee
+------------------------------------------------------------------- */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-x 32s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ------------------------------------------------------------------
+   Hero playhead / timeline
+------------------------------------------------------------------- */
+@keyframes playhead-sweep {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.playhead {
+  animation: playhead-sweep 9s cubic-bezier(0.7, 0, 0.2, 1) infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(1.7);
+  }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.pulse-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 43, 43, 0.7);
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+/* ------------------------------------------------------------------
+   Vignette for cinematic depth
+------------------------------------------------------------------- */
+.vignette {
+  pointer-events: none;
+  background: radial-gradient(
+    120% 90% at 50% 30%,
+    transparent 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+/* ------------------------------------------------------------------
+   Reduced motion
+------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .grain,
+  .marquee-track,
+  .playhead,
+  .pulse-dot,
+  .pulse-ring::after {
+    animation: none !important;
+  }
+}
