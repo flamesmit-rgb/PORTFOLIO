@@ -6,6 +6,7 @@ import { site } from "@/data/site";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import { EASE } from "@/lib/anim";
+import { asset } from "@/lib/asset";
 
 export default function Showreel() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -50,7 +51,7 @@ export default function Showreel() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={site.showreel.poster}
+              src={asset(site.showreel.poster)}
               alt="Showreel poster placeholder"
               className="absolute inset-0 h-full w-full object-cover opacity-80 transition-all duration-500 group-hover:scale-[1.015] group-hover:opacity-100"
             />
@@ -86,8 +87,8 @@ export default function Showreel() {
             {hasVideo && playing && (
               <video
                 ref={videoRef}
-                src={site.showreel.src}
-                poster={site.showreel.poster}
+                src={asset(site.showreel.src)}
+                poster={asset(site.showreel.poster)}
                 controls
                 autoPlay
                 preload="metadata"

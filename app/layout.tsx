@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { asset } from "@/lib/asset";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,14 +44,14 @@ export const metadata: Metadata = {
       "Portfolio of Smit Dhandar, a video editor specializing in reels, short-form content, motion graphics and visual effects.",
     siteName: "SMITXFX",
     locale: "en_US",
-    images: [{ url: "/og.svg", width: 1200, height: 630, alt: "SMITXFX — Video Editing portfolio" }],
+    images: [{ url: asset("/og.svg"), width: 1200, height: 630, alt: "SMITXFX — Video Editing portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Smit Dhandar — Video Editor & Motion Designer",
     description:
       "Portfolio of Smit Dhandar, a video editor specializing in reels, short-form content, motion graphics and visual effects.",
-    images: ["/og.svg"],
+    images: [asset("/og.svg")],
   },
   robots: { index: true, follow: true },
 };

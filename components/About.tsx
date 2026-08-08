@@ -1,5 +1,6 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
+import { asset } from "@/lib/asset";
 
 export default function About() {
   return (
@@ -23,7 +24,7 @@ export default function About() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/portrait.svg"
+                src={asset("/images/portrait.svg")}
                 alt="Portrait of Smit Dhandar (placeholder)"
                 loading="lazy"
                 className="aspect-square w-full object-cover saturate-[0.4] transition-all duration-700 group-hover:scale-[1.02] group-hover:saturate-100 md:aspect-[4/5]"

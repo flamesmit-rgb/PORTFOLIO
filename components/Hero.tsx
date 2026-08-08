@@ -11,6 +11,7 @@ import {
 import { site } from "@/data/site";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { EASE } from "@/lib/anim";
+import { asset } from "@/lib/asset";
 
 const BASE_DELAY = 1.62;
 
@@ -126,7 +127,7 @@ export default function Hero() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/showreel-poster.svg"
+                src={asset("/images/showreel-poster.svg")}
                 alt="Showreel placeholder"
                 className="aspect-[9/16] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               />

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import type { Project } from "@/data/projects";
 import { EASE } from "@/lib/anim";
+import { asset } from "@/lib/asset";
 
 type ProjectCardProps = {
   project: Project;
@@ -42,7 +43,7 @@ export default function ProjectCard({
         <div className={`relative w-full ${aspectClass} overflow-hidden`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={project.thumbnail}
+            src={asset(project.thumbnail)}
             alt={project.title}
             loading="lazy"
             className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out ${
@@ -52,8 +53,8 @@ export default function ProjectCard({
 
           {project.video && playing && (
             <video
-              src={project.video}
-              poster={project.thumbnail}
+              src={asset(project.video)}
+              poster={asset(project.thumbnail)}
               autoPlay
               muted
               loop
