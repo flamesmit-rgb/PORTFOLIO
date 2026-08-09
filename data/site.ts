@@ -31,11 +31,11 @@ export const site = {
   //  CONTACT + SOCIAL — replace the placeholder values below.
   // ----------------------------------------------------------------
   contact: {
-    email: "hello@smityourmail.com", // TODO: replace with real email
-    emailHref: "mailto:hello@smityourmail.com",
-    instagram: "https://instagram.com/your.handle", // TODO: replace
-    linkedin: "https://linkedin.com/in/your-handle", // TODO: replace
-    location: "MUMBAI, INDIA",
+    email: "smitxfx@gmail.com",
+    emailHref: "mailto:smitxfx@gmail.com",
+    instagram: "https://www.instagram.com/smitxfx/",
+    linkedin: "https://www.linkedin.com/in/smit-dhandar-317669375/",
+    location: "PUNE, INDIA",
   },
 
   nav: [

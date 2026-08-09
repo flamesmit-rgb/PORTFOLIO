@@ -43,7 +43,7 @@ export default function Footer() {
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-smoke">
             © 2026 {site.fullName} —{" "}
             <a
-              href="mailto:hello@smityourmail.com"
+              href={site.contact.emailHref}
               className="text-cream/70 transition-colors hover:text-ember"
             >
               Designed &amp; edited by Smit.
