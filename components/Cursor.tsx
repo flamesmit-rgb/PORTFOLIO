@@ -13,9 +13,9 @@ export default function Cursor() {
   const y = useMotionValue(-100);
   const reduced = useReducedMotion();
 
-  const springConfig = reduced
+const springConfig = reduced
     ? { stiffness: 50, damping: 20, mass: 0.2 }
-    : { stiffness: 600, damping: 45, mass: 0.4 };
+    : { stiffness: 850, damping: 32, mass: 0.25 };
 
   const sx = useSpring(x, springConfig);
   const sy = useSpring(y, springConfig);

@@ -13,15 +13,8 @@ export type Client = {
 
 export const proof = {
   headline: "BUILT FOR ATTENTION.",
-  // Keep items to 5–9 for a clean row. Remove all items to hide.
-  clients: [
-    { name: "CLIENT 01", note: "YOUR CLIENT" },
-    { name: "CLIENT 02", note: "YOUR CLIENT" },
-    { name: "CLIENT 03", note: "YOUR CLIENT" },
-    { name: "CLIENT 04", note: "YOUR CLIENT" },
-    { name: "CLIENT 05", note: "YOUR CLIENT" },
-    { name: "CLIENT 06", note: "YOUR CLIENT" },
-  ] as Client[],
+  // Add real client names/logos here. Empty = block hidden.
+  clients: [] as Client[],
 
   // Only real, verifiable numbers. "—" as a placeholder value.
   stats: [

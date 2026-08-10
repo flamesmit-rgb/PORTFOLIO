@@ -19,7 +19,7 @@ export function InstagramIcon({ className = "size-4" }: IconProps) {
   );
 }
 
-export function LinkedInIcon({ className }: IconProps) {
+export function LinkedInIcon({ className = "size-4" }: IconProps) {
   return (
     <svg
       className={className}
@@ -32,7 +32,7 @@ export function LinkedInIcon({ className }: IconProps) {
   );
 }
 
-export function MailIcon({ className }: IconProps) {
+export function MailIcon({ className = "size-4" }: IconProps) {
   return (
     <svg
       className={className}
